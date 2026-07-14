@@ -94,7 +94,7 @@ if (-not $healthy) {
 
 ```powershell
 # 读取访问码
-$accessCode = Get-Content "C:\Program Files\WorkBuddyMobileRemote\data\token.txt" -Raw
+$accessCode = Get-Content "C:\Program Files\WorkBuddyMobileRemote\data\access-code.txt" -Raw
 # 读取版本
 $ver = (Get-Content "C:\Program Files\WorkBuddyMobileRemote\version.json" -Raw | ConvertFrom-Json).version
 ```
@@ -171,7 +171,7 @@ $healthy = $false
 try { $r = Invoke-WebRequest -Uri "http://127.0.0.1:18787/health" -UseBasicParsing -TimeoutSec 5; $healthy = ($r.StatusCode -eq 200) } catch {}
 
 # 读取访问码
-$accessCode = Get-Content "C:\Program Files\WorkBuddyMobileRemote\data\token.txt" -Raw
+$accessCode = Get-Content "C:\Program Files\WorkBuddyMobileRemote\data\access-code.txt" -Raw
 $newVer = (Get-Content "C:\Program Files\WorkBuddyMobileRemote\version.json" -Raw | ConvertFrom-Json).version
 ```
 
@@ -269,7 +269,7 @@ fi
 
 ```bash
 # 读取 token
-TOKEN=$(cat "$HOME/WorkBuddy/mobile-remote/data/token.txt" 2>/dev/null)
+TOKEN=$(cat "$HOME/WorkBuddy/mobile-remote/data/access-code.txt" 2>/dev/null)
 # 读取版本
 VER=$(grep -o '"version"[[:space:]]*:[[:space:]]*"[^"]*"' "$HOME/WorkBuddy/mobile-remote/version.json" | sed 's/.*"version"[[:space:]]*:[[:space:]]*"//;s/"$//')
 ```
@@ -312,6 +312,6 @@ lsof -ti:18787 2>/dev/null | xargs kill -9 2>/dev/null || true
 
 1. **不绑定版本号**：本 Skill 永远从 GitHub API 拉最新版本，不需要随安装包更新而修改 Skill
 2. **静默安装参数**：`/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /TASKS=autostart,watchdog`
-3. **访问码不变**：更新覆盖安装不会清除 `data/token.txt`，用户访问码保持不变
+3. **访问码不变**：更新覆盖安装不会清除 `data/access-code.txt`，用户访问码保持不变
 4. **Cloudflare Tunnel 自动启动**：安装后 Gateway 会自动检测网络并启动 Cloudflare Tunnel
 5. **微云备用**：GitHub 下载失败时，引导用户从微云手动下载
