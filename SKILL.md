@@ -49,7 +49,7 @@ $release = Invoke-RestMethod -Uri "https://api.github.com/repos/superkc2026/work
 $tagName = $release.tag_name  # 如 "v2.0.5"
 
 # 2. 找安装包下载地址
-$asset = $release.assets | Where-Object { $_.name -like "WorkBuddy-Mobile-*.exe" } | Select-Object -First 1
+$asset = $release.assets | Where-Object { $_.name -like "WorkBuddy-Mobile-Windows-*.exe" } | Select-Object -First 1
 $downloadUrl = $asset.browser_download_url
 
 # 3. 下载到临时目录
@@ -144,7 +144,7 @@ if ($localVer -eq $latestVer) {
 
 ```powershell
 # 下载最新安装包
-$asset = $release.assets | Where-Object { $_.name -like "WorkBuddy-Mobile-*.exe" } | Select-Object -First 1
+$asset = $release.assets | Where-Object { $_.name -like "WorkBuddy-Mobile-Windows-*.exe" } | Select-Object -First 1
 $exePath = "$env:TEMP\$($asset.name)"
 Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $exePath -UseBasicParsing
 
@@ -220,14 +220,9 @@ NODE=$(command -v node 2>/dev/null || echo "$HOME/.workbuddy/binaries/node/versi
 ```bash
 # 查 GitHub 最新版本
 RELEASE=$(curl -sL "https://api.github.com/repos/superkc2026/workbuddy-mobile/releases/latest" -H "User-Agent: WorkBuddy")
-# 找 .dmg 或 .zip 安装包下载地址
-DOWNLOAD_URL=$(echo "$RELEASE" | grep -o '"browser_download_url"[[:space:]]*:[[:space:]]*"[^"]*\.dmg"' | head -1 | sed 's/.*"browser_download_url"[[:space:]]*:[[:space:]]*"//;s/"$//')
-PKG_TYPE="dmg"
-# 如果没有 .dmg，找 .zip
-if [ -z "$DOWNLOAD_URL" ]; then
-  DOWNLOAD_URL=$(echo "$RELEASE" | grep -o '"browser_download_url"[[:space:]]*:[[:space:]]*"[^"]*\.zip"' | head -1 | sed 's/.*"browser_download_url"[[:space:]]*:[[:space:]]*"//;s/"$//')
-  PKG_TYPE="zip"
-fi
+# 找 Mac 安装包（命名规则：WorkBuddy-Mobile-Mac-x.x.x.zip）
+DOWNLOAD_URL=$(echo "$RELEASE" | grep -o '"browser_download_url"[[:space:]]*:[[:space:]]*"[^"]*WorkBuddy-Mobile-Mac[^"]*"' | head -1 | sed 's/.*"browser_download_url"[[:space:]]*:[[:space:]]*"//;s/"$//')
+PKG_TYPE="zip"
 # 下载到临时目录
 curl -L -o "/tmp/wb-mobile.$PKG_TYPE" "$DOWNLOAD_URL"
 ```
