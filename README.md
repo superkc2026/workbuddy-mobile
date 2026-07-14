@@ -3,7 +3,9 @@
 > 用手机远程操控电脑上的 WorkBuddy AI 助手，随时随地查看任务进展、发送指令、预览产物。
 
 <p align="center">
-  <img src="screenshot-entry.png" width="200" alt="访问码入口页" />
+  <img src="1-登录页.png" width="200" alt="登录页" />
+  <img src="2-多任务列表.png" width="200" alt="多任务列表" />
+  <img src="3-执行任务.png" width="200" alt="执行任务" />
 </p>
 
 ## ✨ 功能亮点
