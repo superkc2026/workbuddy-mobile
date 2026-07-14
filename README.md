@@ -4,7 +4,6 @@
 
 <p align="center">
   <img src="screenshot-entry.png" width="200" alt="访问码入口页" />
-  <img src="screenshot-tasks.png" width="200" alt="任务列表" />
 </p>
 
 ## ✨ 功能亮点
