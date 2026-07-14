@@ -24,16 +24,6 @@
 
 Gateway 启动时自动检测可用方式，按优先级 A→B→C 降级。**用户无需手动配置，打开即用。**
 
-### 固定地址访问
-
-电脑重启后 Cloudflare Tunnel 地址会变化。Gateway 自动把最新地址推送到固定页面：
-
-```
-https://wb.loveclaw.fun/<你的设备ID>
-```
-
-手机收藏这个页面，每次打开就能看到最新的连接地址，点击"连接"即可。
-
 ## 📦 安装
 
 ### 电脑端
@@ -47,9 +37,8 @@ https://wb.loveclaw.fun/<你的设备ID>
 
 无需安装任何东西，用浏览器打开 Gateway 地址即可。
 
-**获取地址的方式（任选其一）：**
+**获取地址的方式：**
 - 打开电脑端 WorkBuddy，问它"手机版地址是什么"
-- 打开固定页面 `https://wb.loveclaw.fun/<你的设备ID>`，点击"连接"
 - 在同 WiFi 下，直接访问局域网 IP
 
 ## 🏗️ 架构
@@ -103,7 +92,6 @@ Gateway 启动
 - 确认电脑已开机且 WorkBuddy 正在运行
 - 确认 Gateway 在运行（电脑端问 WorkBuddy "手机版地址"）
 - 如果在公司网络，Cloudflare Tunnel 会自动启动，可能需要等 10-30 秒
-- 打开固定页面 `https://wb.loveclaw.fun/<设备ID>` 查看最新地址
 </details>
 
 <details>
@@ -125,7 +113,7 @@ Gateway 启动
 <details>
 <summary><b>电脑重启后手机连不上了？</b></summary>
 
-Cloudflare Tunnel 的地址每次重启都会变。打开固定页面 `https://wb.loveclaw.fun/<设备ID>` 获取最新地址。如果 Gateway 配置了开机自启，重启后等 30 秒即可。
+Cloudflare Tunnel 的地址每次重启都会变。在电脑端问 WorkBuddy "手机版地址"获取最新地址。如果 Gateway 配置了开机自启，重启后等 30 秒即可。
 </details>
 
 ## 🔄 更新日志
@@ -137,7 +125,6 @@ Cloudflare Tunnel 的地址每次重启都会变。打开固定页面 `https://w
 - 内置反馈系统（需求建议 + 问题反馈）
 - 今日积分统计
 - 飞书群入口
-- 固定地址页面（wb.loveclaw.fun）
 
 **优化：**
 - node:sqlite 替代 Python（消除外部依赖）
@@ -168,6 +155,6 @@ MIT
 
 **Power by 超老师 & WorkBuddy**
 
-[下载安装包](https://github.com/superkc2026/workbuddy-mobile/releases) · [反馈建议](https://github.com/superkc2026/workbuddy-mobile/issues) · [飞书群](https://wb.loveclaw.fun/wb)
+[下载安装包](https://github.com/superkc2026/workbuddy-mobile/releases) · [反馈建议](https://github.com/superkc2026/workbuddy-mobile/issues)
 
 </div>
