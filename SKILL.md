@@ -222,10 +222,14 @@ NODE=$(command -v node 2>/dev/null || echo "$HOME/.workbuddy/binaries/node/versi
 RELEASE=$(curl -sL "https://api.github.com/repos/superkc2026/workbuddy-mobile/releases/latest" -H "User-Agent: WorkBuddy")
 # 找 .dmg 或 .zip 安装包下载地址
 DOWNLOAD_URL=$(echo "$RELEASE" | grep -o '"browser_download_url"[[:space:]]*:[[:space:]]*"[^"]*\.dmg"' | head -1 | sed 's/.*"browser_download_url"[[:space:]]*:[[:space:]]*"//;s/"$//')
+PKG_TYPE="dmg"
 # 如果没有 .dmg，找 .zip
-[ -z "$DOWNLOAD_URL" ] && DOWNLOAD_URL=$(echo "$RELEASE" | grep -o '"browser_download_url"[[:space:]]*:[[:space:]]*"[^"]*\.zip"' | head -1 | sed 's/.*"browser_download_url"[[:space:]]*:[[:space:]]*"//;s/"$//')
+if [ -z "$DOWNLOAD_URL" ]; then
+  DOWNLOAD_URL=$(echo "$RELEASE" | grep -o '"browser_download_url"[[:space:]]*:[[:space:]]*"[^"]*\.zip"' | head -1 | sed 's/.*"browser_download_url"[[:space:]]*:[[:space:]]*"//;s/"$//')
+  PKG_TYPE="zip"
+fi
 # 下载到临时目录
-curl -L -o /tmp/wb-mobile.dmg "$DOWNLOAD_URL"
+curl -L -o "/tmp/wb-mobile.$PKG_TYPE" "$DOWNLOAD_URL"
 ```
 
 > **网络失败处理**：如果 GitHub 下载失败，提示用户：
@@ -239,12 +243,14 @@ curl -L -o /tmp/wb-mobile.dmg "$DOWNLOAD_URL"
 mkdir -p "$HOME/WorkBuddy/mobile-remote"
 
 # 如果是 .dmg
-hdiutil attach /tmp/wb-mobile.dmg -nobrowse -mountpoint /tmp/wb-mobile-mount
-cp -r /tmp/wb-mobile-mount/* "$HOME/WorkBuddy/mobile-remote/"
-hdiutil detach /tmp/wb-mobile-mount
-
-# 如果是 .zip
-# unzip /tmp/wb-mobile.zip -d "$HOME/WorkBuddy/mobile-remote/"
+if [ "$PKG_TYPE" = "dmg" ]; then
+  hdiutil attach /tmp/wb-mobile.dmg -nobrowse -mountpoint /tmp/wb-mobile-mount
+  cp -r /tmp/wb-mobile-mount/* "$HOME/WorkBuddy/mobile-remote/"
+  hdiutil detach /tmp/wb-mobile-mount
+else
+  # .zip 解压
+  unzip -o /tmp/wb-mobile.zip -d "$HOME/WorkBuddy/mobile-remote/"
+fi
 
 # 设置脚本可执行
 chmod +x "$HOME/WorkBuddy/mobile-remote/"*.sh
