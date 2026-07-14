@@ -195,7 +195,7 @@ $newVer = (Get-Content "C:\Program Files\WorkBuddyMobileRemote\version.json" -Ra
 安装目录: ~/WorkBuddy/mobile-remote
 GitHub API: https://api.github.com/repos/superkc2026/workbuddy-mobile/releases/latest
 手机入口: https://wb.loveclaw.fun
-微云备用下载: https://share.weiyun.com/Bmp7Skyh
+微云备用下载: https://share.weiyun.com/MK9aZFKr
 ```
 
 ### Mac 流程 A：首次安装
@@ -228,7 +228,7 @@ curl -L -o "/tmp/wb-mobile.$PKG_TYPE" "$DOWNLOAD_URL"
 ```
 
 > **网络失败处理**：如果 GitHub 下载失败，提示用户：
-> "GitHub 下载失败，请手动从微云下载安装包：https://share.weiyun.com/Bmp7Skyh
+> "GitHub 下载失败，请手动从微云下载安装包：https://share.weiyun.com/MK9aZFKr
 > 下载后告诉我文件路径，我来帮你安装。"
 
 #### Mac-A3. 安装（解压到目标路径）
