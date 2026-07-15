@@ -1,168 +1,207 @@
-# WorkBuddy 鎵嬫満鐗?
-> 鐢ㄦ墜鏈鸿繙绋嬫搷鎺х數鑴戜笂鐨?WorkBuddy AI 鍔╂墜锛岄殢鏃堕殢鍦版煡鐪嬩换鍔¤繘灞曘€佸彂閫佹寚浠ゃ€侀瑙堜骇鐗┿€?
+# WorkBuddy 手机版
+
+> 用手机远程操控电脑上的 WorkBuddy AI 助手，随时随地查看任务进展、发送指令、预览产物。
+
 <p align="center">
-  <img src="screenshots/1-鐧诲綍椤?png" width="200" alt="鐧诲綍椤? />
-  <img src="screenshots/2-澶氫换鍔″垪琛?png" width="200" alt="澶氫换鍔″垪琛? />
-  <img src="screenshots/3-鎵ц浠诲姟.png" width="200" alt="鎵ц浠诲姟" />
+  <img src="screenshots/1-登录页.png" width="200" alt="登录页" />
+  <img src="screenshots/2-多任务列表.png" width="200" alt="多任务列表" />
+  <img src="screenshots/3-执行任务.png" width="200" alt="执行任务" />
 </p>
 
-## 鉁?鍔熻兘浜偣
+## ✨ 功能亮点
 
-- 馃摫 **鎵嬫満杩滅▼鎿嶆帶** 鈥?鎵嬫満娴忚鍣ㄦ墦寮€鍗崇敤锛屾棤闇€瀹夎 APP
-- 馃攧 **瀹炴椂鍚屾** 鈥?鐢佃剳绔殑浠诲姟銆佸璇濄€佷骇鐗╁疄鏃跺悓姝ュ埌鎵嬫満
-- 馃殌 **涓夊眰杩炴帴鏂规** 鈥?灞€鍩熺綉鐩磋繛 / UPnP / Cloudflare Tunnel锛岃嚜鍔ㄩ檷绾э紝闆堕厤缃?- 馃挰 **鍙屽悜瀵硅瘽** 鈥?鎵嬫満鍙戞秷鎭紝AI 鍥炲锛岃窡鐢佃剳绔綋楠屼竴鑷?- 馃搸 **鏂囦欢涓婁紶** 鈥?鎵嬫満鎷嶇収銆侀€夋枃浠剁洿鎺ュ彂缁?AI
-- 馃搵 **浜х墿棰勮** 鈥?浠ｇ爜銆佹枃妗ｃ€佸浘琛ㄥ湪绾块瑙?- 馃敀 **瀹夊叏璁よ瘉** 鈥?6 浣嶈闂爜 + Token 鍙岄噸璁よ瘉
-- 馃搳 **绉垎缁熻** 鈥?浠婃棩娑堣€?+ 绱浣跨敤涓€鐩簡鐒?- 馃摑 **鍙嶉閫氶亾** 鈥?鍐呯疆闇€姹傚缓璁拰闂鍙嶉锛岃嚜鍔ㄦ敹闆嗙郴缁熶俊鎭?- 鈿?**鏁版嵁缂撳瓨** 鈥?浠诲姟鍒楄〃鍜屽璇濆巻鍙叉湰鍦扮紦瀛橈紝鎵撳紑鍗崇湅
-- 馃搶 **缃《鍚屾** 鈥?鎵嬫満绔疆椤堕€氳繃 SQLite 瀹夊叏灞傚悓姝ュ埌鐢佃剳绔紙涓嶅啓 leveldb锛岄伩鍏嶅穿搴擄級
+- 📱 **手机远程操控** — 手机浏览器打开即用，无需安装 APP
+- 🔄 **实时同步** — 电脑端的任务、对话、产物实时同步到手机
+- 🚀 **三层连接方案** — 局域网直连 / UPnP / Cloudflare Tunnel，自动降级，零配置
+- 💬 **双向对话** — 手机发消息，AI 回复，跟电脑端体验一致
+- 📎 **文件上传** — 手机拍照、选文件直接发给 AI
+- 📋 **产物预览** — 代码、文档、图表在线预览
+- 🔒 **安全认证** — 6 位访问码 + Token 双重认证
+- 📊 **积分统计** — 今日消耗 + 累计使用一目了然
+- 📝 **反馈通道** — 内置需求建议和问题反馈，自动收集系统信息
+- ⚡ **数据缓存** — 任务列表和对话历史本地缓存，打开即看
+- 📌 **置顶同步** — 手机端置顶通过 SQLite 安全层同步到电脑端（不写 leveldb，避免崩库）
 
-## 馃敆 杩炴帴鏂瑰紡
+## 🔗 连接方式
 
-| 鏂瑰紡 | 鍦烘櫙 | 闇€瑕佸畨瑁?| 閫熷害 |
+| 方式 | 场景 | 需要安装 | 速度 |
 |------|------|---------|------|
-| 灞€鍩熺綉鐩磋繛 | 鍚屼竴 WiFi | 鏃?| 鈿?鏈€蹇?|
-| UPnP 绔彛杞彂 | 瀹跺涵缃戠粶 | 鏃?| 馃殌 蹇?|
-| Cloudflare Tunnel | 鍏徃缃戠粶 / 浠讳綍缃戠粶 | 鑷姩涓嬭浇 cloudflared | 鉁?绋冲畾 |
+| 局域网直连 | 同一 WiFi | 无 | ⚡ 最快 |
+| UPnP 端口转发 | 家庭网络 | 无 | 🚀 快 |
+| Cloudflare Tunnel | 公司网络 / 任何网络 | 自动下载 cloudflared | ✅ 稳定 |
 
-Gateway 鍚姩鏃惰嚜鍔ㄦ娴嬪彲鐢ㄦ柟寮忥紝鎸変紭鍏堢骇 A鈫払鈫扖 闄嶇骇銆?*鐢ㄦ埛鏃犻渶鎵嬪姩閰嶇疆锛屾墦寮€鍗崇敤銆?*
+Gateway 启动时自动检测可用方式，按优先级 A→B→C 降级。**用户无需手动配置，打开即用。**
 
-### 鎵嬫満杩炴帴娴佺▼
+### 手机连接流程
 
-1. 鐢佃剳绔?Gateway 鍚姩鍚庤嚜鍔ㄧ敓鎴?6 浣嶈闂爜
-2. 鎵嬫満娴忚鍣ㄦ墦寮€ `wb.loveclaw.fun`
-3. 杈撳叆璁块棶鐮侊紝鍕鹃€?璁颁綇璁块棶鐮?
-4. 鑷姩杩炴帴鍒颁綘鐨?Gateway
+1. 电脑端 Gateway 启动后自动生成 6 位访问码
+2. 手机浏览器打开 `wb.loveclaw.fun`
+3. 输入访问码，勾选"记住访问码"
+4. 自动连接到你的 Gateway
 
-> 鐢佃剳閲嶅惎鍚庤闂爜涓嶅彉锛孋loudflare URL 鑷姩鏇存柊锛屾墜鏈烘棤闇€閲嶆柊杈撳叆銆?
-## 馃摝 瀹夎
+> 电脑重启后访问码不变，Cloudflare URL 自动更新，手机无需重新输入。
+
+## 📦 安装
 
 ### Windows
 
-1. 瀹夎 [WorkBuddy 妗岄潰鐗圿(https://www.codebuddy.cn/work/)
-2. 涓嬭浇 `WorkBuddy-Mobile-Windows-x.x.x.zip`锛圼鏈€鏂扮増](https://github.com/superkc2026/workbuddy-mobile/releases/latest)锛?3. 瑙ｅ帇鍒?`~/WorkBuddy/mobile-remote/`
-4. 杩愯 `start.ps1` 鍚姩 Gateway
-5. 杩愯 `install-task.ps1` 璁剧疆寮€鏈鸿嚜鍚紙鍙€夛級
+1. 安装 [WorkBuddy 桌面版](https://www.codebuddy.cn/work/)
+2. 下载 `WorkBuddy-Mobile-Windows-x.x.x.zip`（[最新版](https://github.com/superkc2026/workbuddy-mobile/releases/latest)）
+3. 解压到 `~/WorkBuddy/mobile-remote/`
+4. 运行 `start.ps1` 启动 Gateway
+5. 运行 `install-task.ps1` 设置开机自启（可选）
 
 ### Mac
 
-1. 瀹夎 WorkBuddy 妗岄潰鐗?2. 涓嬭浇 `WorkBuddy-Mobile-Mac-x.x.x.zip`锛圼鏈€鏂扮増](https://github.com/superkc2026/workbuddy-mobile/releases/latest)锛?3. 瑙ｅ帇鍒?`~/WorkBuddy/mobile-remote/`
-4. 杩愯 `bash start.sh` 鍚姩 Gateway
-5. 杩愯 `bash install-launchd.sh` 璁剧疆寮€鏈鸿嚜鍚紙鍙€夛級
+1. 安装 WorkBuddy 桌面版
+2. 下载 `WorkBuddy-Mobile-Mac-x.x.x.zip`（[最新版](https://github.com/superkc2026/workbuddy-mobile/releases/latest)）
+3. 解压到 `~/WorkBuddy/mobile-remote/`
+4. 运行 `bash start.sh` 启动 Gateway
+5. 运行 `bash install-launchd.sh` 设置开机自启（可选）
 
-### 涓€閿畨瑁咃紙鎺ㄨ崘锛?
-鍦?WorkBuddy 涓畨瑁呴儴缃?Skill 鍚庯紝鐩存帴璇?瀹夎鎵嬫満鐗?锛孲kill 浼氳嚜鍔ㄤ粠 GitHub 涓嬭浇鏈€鏂扮増骞惰В鍘嬪畨瑁呫€傛敮鎸佸悗缁"鏇存柊鎵嬫満鐗?鑷姩妫€鏌ユ洿鏂般€?
-### 鎵嬫満绔?
-鏃犻渶瀹夎浠讳綍涓滆タ锛岀敤娴忚鍣ㄦ墦寮€ `wb.loveclaw.fun`锛岃緭鍏ヨ闂爜鍗冲彲銆?
-## 馃彈锔?鏋舵瀯
+### 一键安装（推荐）
+
+在 WorkBuddy 中安装部署 Skill 后，直接说"安装手机版"，Skill 会自动从 GitHub 下载最新版并解压安装。支持后续说"更新手机版"自动检查更新。
+
+### 手机端
+
+无需安装任何东西，用浏览器打开 `wb.loveclaw.fun`，输入访问码即可。
+
+## 🏗️ 架构
 
 ```
-鎵嬫満娴忚鍣?    鈫?(HTTPS)
+手机浏览器
+    ↓ (HTTPS)
 Gateway (Node.js, :18787)
-    鈫?(ACP 鍗忚)
-WorkBuddy 妗岄潰绔?    鈫?(API)
-AI 妯″瀷 (GPT-4o, Claude, GLM 绛?
+    ↓ (ACP 协议)
+WorkBuddy 桌面端
+    ↓ (API)
+AI 模型 (GPT-4o, Claude, GLM 等)
 ```
 
-### 涓夊眰杩炴帴鏂规
+### 三层连接方案
 
 ```
-Gateway 鍚姩
-  鈹溾攢鈹€ A 妫€娴嬪眬鍩熺綉 IP 鈫?192.168.x.x:18787锛堝悓 WiFi 鐢ㄦ埛锛?  鈹溾攢鈹€ B 灏濊瘯 UPnP 鈫?鍏綉IP:18787锛堝搴綉缁滅敤鎴凤級
-  鈹溾攢鈹€ C 鍚姩 Cloudflare Tunnel 鈫?xxx.trycloudflare.com锛堝叕鍙?鍏朵粬缃戠粶鐢ㄦ埛锛?```
+Gateway 启动
+  ├── A 检测局域网 IP → 192.168.x.x:18787（同 WiFi 用户）
+  ├── B 尝试 UPnP → 公网IP:18787（家庭网络用户）
+  ├── C 启动 Cloudflare Tunnel → xxx.trycloudflare.com（公司/其他网络用户）
+```
 
-姣忓眰鐙珛杩愯锛岃嚜鍔ㄩ檷绾с€傜敤鎴风數鑴戣嚜宸卞綋鏈嶅姟鍣紝涓嶄緷璧栦换浣曚腑蹇冭妭鐐广€?
-### 闅ч亾鎺夌嚎鑷剤
+每层独立运行，自动降级。用户电脑自己当服务器，不依赖任何中心节点。
 
-Cloudflare Tunnel 鍋跺彂"鍋囨"锛堣繘绋嬪湪浣嗕笉杞彂锛夛紝Gateway 姣?30 绉掓帰娴嬩竴娆★紝鍋囨鏃惰嚜鍔?kill + 閲嶅惎 + 閲嶆敞鍐岃闂爜銆?
-## 馃洜锔?鎶€鏈爤
+### 隧道掉线自愈
 
-| 缁勪欢 | 鎶€鏈?| 璇存槑 |
+Cloudflare Tunnel 偶发"假死"（进程在但不转发），Gateway 每 30 秒探测一次，假死时自动 kill + 重启 + 重注册访问码。
+
+## 🛠️ 技术栈
+
+| 组件 | 技术 | 说明 |
 |------|------|------|
-| Gateway | Node.js 22 | 鍘熺敓 HTTP 鏈嶅姟鍣紝绔彛 18787 |
-| 鍓嶇 | PWA | 鍗曢〉搴旂敤锛屽師鐢?JS + CSS锛屾敮鎸佺绾跨紦瀛?|
-| 鏁版嵁搴?| node:sqlite | Node.js 鍐呯疆 SQLite锛屾棤闇€澶栭儴渚濊禆 |
-| Mac 缃《璇诲彇 | Python 姝ｅ垯 | 鐩磋 leveldb 鍘熷瀛楄妭锛圲TF-16LE锛夛紝涓嶄緷璧?Node level 搴?|
-| 缃《鍚屾 | SQLite pins 琛?| 璺ㄨ澶囩湡鐩告簮锛屼笉鍐?leveldb 閬垮厤宕╁簱 |
-| 杩炴帴鏂规 | 灞€鍩熺綉 / UPnP / Cloudflare Tunnel | 涓夊眰鑷姩闄嶇骇 |
-| 闅ч亾鑷剤 | 30s 鎺㈡祴 | 鍋囨鑷姩閲嶅惎 + 閲嶆敞鍐?|
-| 璁块棶鐮?| 6 浣嶉殢鏈虹爜 | 21 浜跨缁勫悎锛屾案涔呬笉鍙?|
+| Gateway | Node.js 22 | 原生 HTTP 服务器，端口 18787 |
+| 前端 | PWA | 单页应用，原生 JS + CSS，支持离线缓存 |
+| 数据库 | node:sqlite | Node.js 内置 SQLite，无需外部依赖 |
+| Mac 置顶读取 | Python 正则 | 直读 leveldb 原始字节（UTF-16LE），不依赖 Node level 库 |
+| 置顶同步 | SQLite pins 表 | 跨设备真相源，不写 leveldb 避免崩库 |
+| 连接方案 | 局域网 / UPnP / Cloudflare Tunnel | 三层自动降级 |
+| 隧道自愈 | 30s 探测 | 假死自动重启 + 重注册 |
+| 访问码 | 6 位随机码 | 21 亿种组合，永久不变 |
 
-## 馃搵 绯荤粺瑕佹眰
+## 📋 系统要求
 
-| 椤圭洰 | 瑕佹眰 |
+| 项目 | 要求 |
 |------|------|
-| 鎿嶄綔绯荤粺 | Windows 10/11 鎴?macOS |
-| Node.js | 22+锛圵orkBuddy 妗岄潰鐗堝凡鍐呯疆锛?|
-| WorkBuddy | 鏈€鏂扮増 |
-| 鎵嬫満 | 浠讳綍鏈夋祻瑙堝櫒鐨勮澶?|
-| 缃戠粶 | WiFi / 绉诲姩缃戠粶鍧囧彲 |
+| 操作系统 | Windows 10/11 或 macOS |
+| Node.js | 22+（WorkBuddy 桌面版已内置） |
+| WorkBuddy | 最新版 |
+| 手机 | 任何有浏览器的设备 |
+| 网络 | WiFi / 移动网络均可 |
 
-## 鉂?甯歌闂
-
-<details>
-<summary><b>鎵嬫満鎵撲笉寮€ Gateway 鍦板潃锛?/b></summary>
-
-- 纭鐢佃剳宸插紑鏈轰笖 WorkBuddy 姝ｅ湪杩愯
-- 纭 Gateway 鍦ㄨ繍琛岋紙鐢佃剳绔棶 WorkBuddy "鎵嬫満鐗堝湴鍧€"锛?- 濡傛灉鍦ㄥ叕鍙哥綉缁滐紝Cloudflare Tunnel 浼氳嚜鍔ㄥ惎鍔紝鍙兘闇€瑕佺瓑 10-30 绉?</details>
+## ❓ 常见问题
 
 <details>
-<summary><b>鎵嬫満鐪嬩笉鍒颁换鍔″垪琛紵</b></summary>
+<summary><b>手机打不开 Gateway 地址？</b></summary>
 
-- 涓嬫媺鍒锋柊椤甸潰
-- 纭鐢佃剳绔?WorkBuddy 鏈変换鍔″湪杩愯
-- 娓呴櫎娴忚鍣ㄧ紦瀛樺悗閲嶈瘯
+- 确认电脑已开机且 WorkBuddy 正在运行
+- 确认 Gateway 在运行（电脑端问 WorkBuddy "手机版地址"）
+- 如果在公司网络，Cloudflare Tunnel 会自动启动，可能需要等 10-30 秒
 </details>
 
 <details>
-<summary><b>鍙戞秷鎭悗娌℃敹鍒板洖澶嶏紵</b></summary>
+<summary><b>手机看不到任务列表？</b></summary>
 
-- 纭鐢佃剳绔?WorkBuddy 妗岄潰鐗堟鍦ㄨ繍琛?- AI 澶勭悊鍙兘闇€瑕佸嚑绉掑埌鍑犲崄绉?- 濡傛灉闀挎椂闂存病鍥炲锛屽彲鑳芥槸 serve 杩涚▼鏈惎鍔紝鍦ㄧ數鑴戠閲嶆柊鎵撳紑 WorkBuddy
+- 下拉刷新页面
+- 确认电脑端 WorkBuddy 有任务在运行
+- 清除浏览器缓存后重试
 </details>
 
 <details>
-<summary><b>鐢佃剳閲嶅惎鍚庢墜鏈鸿繛涓嶄笂浜嗭紵</b></summary>
+<summary><b>发消息后没收到回复？</b></summary>
 
-Cloudflare Tunnel 鐨勫湴鍧€姣忔閲嶅惎閮戒細鍙橈紝浣嗚闂爜涓嶅彉銆傛墜鏈烘墦寮€ `wb.loveclaw.fun` 杈撳叆璁块棶鐮佸嵆鍙€傚鏋滈厤缃簡寮€鏈鸿嚜鍚紙Windows: install-task.ps1 / Mac: install-launchd.sh锛夛紝閲嶅惎鍚庣瓑 30 绉掑嵆鍙€?</details>
+- 确认电脑端 WorkBuddy 桌面版正在运行
+- AI 处理可能需要几秒到几十秒
+- 如果长时间没回复，可能是 serve 进程未启动，在电脑端重新打开 WorkBuddy
+</details>
 
 <details>
-<summary><b>蹇樿璁块棶鐮佷簡锛?/b></summary>
+<summary><b>电脑重启后手机连不上了？</b></summary>
 
-鍦ㄧ數鑴戠闂?WorkBuddy "鎵嬫満鐗堣闂爜鏄粈涔?锛屼細杩斿洖浣犵殑 6 浣嶈闂爜銆?</details>
+Cloudflare Tunnel 的地址每次重启都会变，但访问码不变。手机打开 `wb.loveclaw.fun` 输入访问码即可。如果配置了开机自启（Windows: install-task.ps1 / Mac: install-launchd.sh），重启后等 30 秒即可。
+</details>
 
-## 馃攧 鏇存柊鏃ュ織
+<details>
+<summary><b>忘记访问码了？</b></summary>
+
+在电脑端问 WorkBuddy "手机版访问码是什么"，会返回你的 6 位访问码。
+</details>
+
+## 🔄 更新日志
 
 ### v2.0.7 (2026-07-15)
 
-**閲嶅ぇ鏀瑰姩锛?*
-- Windows 瀹夎鍖呬粠 .exe 鏀逛负 .zip锛堣В鍘嬪嵆鐢紝鏃犻渶绠＄悊鍛樻潈闄愶級
-- 鏂板 Windows start.ps1 鍚姩鑴氭湰 + install-task.ps1 寮€鏈鸿嚜鍚?- 娑堟伅閲嶅淇锛堟垚鍔熻矾寰?serve 鍗曚竴鍐欏叆锛屾墜鏈虹涓嶅弻鍐欙級
+**重大改动：**
+- Windows 安装包从 .exe 改为 .zip（解压即用，无需管理员权限）
+- 新增 Windows start.ps1 启动脚本 + install-task.ps1 开机自启
+- 消息重复修复（成功路径 serve 单一写入，手机端不双写）
 
-**Mac 绔?13 椤逛紭鍖栵細**
-- 浜х墿 404 淇锛坲ri.slice 鈫?new URL().pathname锛?- Cmd+R 鏀逛负鑿滃崟鐐瑰嚮銆屾煡鐪嬧啋閲嶆柊鍔犺浇銆嶏紙Cmd+R 鍦?WorkBuddy 鏈粦瀹氾級
-- 闅ч亾鎺夌嚎鑷剤锛?0s 鎺㈡祴鍋囨 鈫?kill 鈫?閲嶅惎 鈫?閲嶆敞鍐岋級
-- 缃《鏀圭敤 Python getPinnedSessions锛堟鍒欑洿璇?leveldb锛屼笉渚濊禆鍧忔帀鐨?Node level 搴擄級
-- 缃《鍚屾瀹夊叏灞傦紙SQLite pins 琛?+ getSqlitePins/setPin + POST pin 鎺ュ彛 + togglePin async锛?- 姝讳唬鐮佹竻鐞嗭紙鍒?pinned-reader.cjs + getPinnedSessionsFromLevelDB锛?- CSS 鍙鎬т紭鍖栵紙瀛椾綋鍔犲ぇ銆侀棿璺濆姞瀹姐€佺伆鑹插姞娣憋級
-- readJson 500 淇 + /feedback-viewer 璺敱
-- cloudflared 鍥藉唴婧愶紙proxy.gitwarp.com锛?- start.sh 瀛ゅ効杩涚▼娓呯悊锛坈loudflared + watchdog-child锛?- gateway.log 鏃ュ織杞浆锛堥伩鍏嶉潤榛樺け鏁堬級
+**Mac 端 13 项优化：**
+- 产物 404 修复（uri.slice → new URL().pathname）
+- Cmd+R 改为菜单点击「查看→重新加载」（Cmd+R 在 WorkBuddy 未绑定）
+- 隧道掉线自愈（30s 探测假死 → kill → 重启 → 重注册）
+- 置顶改用 Python getPinnedSessions（正则直读 leveldb，不依赖坏掉的 Node level 库）
+- 置顶同步安全层（SQLite pins 表 + getSqlitePins/setPin + POST pin 接口 + togglePin async）
+- 死代码清理（删 pinned-reader.cjs + getPinnedSessionsFromLevelDB）
+- CSS 可读性优化（字体加大、间距加宽、灰色加深）
+- readJson 500 修复 + /feedback-viewer 路由
+- cloudflared 国内源（proxy.gitwarp.com）
+- start.sh 孤儿进程清理（cloudflared + watchdog-child）
+- gateway.log 日志轮转（避免静默失效）
 
 ### v2.0.5 (2026-07-14)
 
-**鏂板姛鑳斤細**
-- 6 浣嶈闂爜绯荤粺锛堟浛浠?PIN锛?1 浜跨缁勫悎锛?- 璁块棶鐮佽浣忓姛鑳斤紙localStorage锛屼笅娆¤嚜鍔ㄨ繛鎺ワ級
-- PWA 鏁版嵁缂撳瓨锛堜换鍔″垪琛?+ 瀵硅瘽鍘嗗彶锛屾墦寮€鍗崇湅锛?- 浠婃棩绉垎灞曠ず锛堝揩鐓у姣旀硶锛?- 椋炰功缇や簩缁寸爜鍏ュ彛
-- 鍙嶉绯荤粺锛堥渶姹傚缓璁?+ 闂鍙嶉锛?- 鍏ㄨ嚜鍔ㄥ畨瑁?Skill锛圙itHub API 鏌ョ増鏈?鈫?涓嬭浇 鈫?瑙ｅ帇瀹夎锛?
-**浼樺寲锛?*
-- 鍥剧墖鍘嬬缉锛坙ogo 51KB锛孮R 285KB锛?- node:sqlite 鏇夸唬 Python锛堟秷闄ゅ閮ㄤ緷璧栵級
-- 娑堟伅鍘嗗彶涓婇檺鎻愬崌鍒?128MB
-- 璁剧疆椤?Tab 鏍峰紡閲嶆瀯
+**新功能：**
+- 6 位访问码系统（替代 PIN，21 亿种组合）
+- 访问码记住功能（localStorage，下次自动连接）
+- PWA 数据缓存（任务列表 + 对话历史，打开即看）
+- 今日积分展示（快照对比法）
+- 飞书群二维码入口
+- 反馈系统（需求建议 + 问题反馈）
+- 全自动安装 Skill（GitHub API 查版本 → 下载 → 解压安装）
+
+**优化：**
+- 图片压缩（logo 51KB，QR 285KB）
+- node:sqlite 替代 Python（消除外部依赖）
+- 消息历史上限提升到 128MB
+- 设置页 Tab 样式重构
 
 ### v2.0.3 (2026-07-13)
 
-- Relay 涓户妯″紡
-- PWA 閫氳繃 Relay 璁块棶
-- 鑷缓 DERP 涓户
-- Android APK 鎵撳寘
+- Relay 中继模式
+- PWA 通过 Relay 访问
+- 自建 DERP 中继
+- Android APK 打包
 
-## 馃搫 License
+## 📄 License
 
 MIT
 
@@ -170,8 +209,8 @@ MIT
 
 <div align="center">
 
-**Power by 瓒呰€佸笀 & WorkBuddy**
+**Power by 超老师 & WorkBuddy**
 
-[涓嬭浇瀹夎鍖匽(https://github.com/superkc2026/workbuddy-mobile/releases/latest) 路 [寰簯澶囩敤](https://share.weiyun.com/MK9aZFKr) 路 [鍙嶉寤鸿](https://github.com/superkc2026/workbuddy-mobile/issues)
+[下载安装包](https://github.com/superkc2026/workbuddy-mobile/releases/latest) · [微云备用](https://share.weiyun.com/MK9aZFKr) · [反馈建议](https://github.com/superkc2026/workbuddy-mobile/issues)
 
 </div>
